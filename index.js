@@ -1,4 +1,15 @@
-'use strict';
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question('type in your string: ', str => {
+    readline.question('type in your substring to replace brackets with: ', substr => {
+        console.log('>>', replace(str, substr));
+
+        readline.close();
+    });
+});
 
 function replace(str, substr) {
 
@@ -33,4 +44,4 @@ function replace(str, substr) {
     return answer;
 }
 
-module.exports = { replace };
+module.exports = {replace};

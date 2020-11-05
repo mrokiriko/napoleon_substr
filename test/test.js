@@ -1,14 +1,8 @@
 const assert = require('assert');
 const brackets = require('../index.js');
 
-// import replaceBrackets from '../index.js';
-
 describe('Array', function () {
     describe('#indexOf()', function () {
-
-        it('should return -1 when the value is not present', function () {
-            assert.equal([1, 2, 3].indexOf(4), -1);
-        });
 
         it('right javascript replacement', function () {
             let str = '[Programming [langu[age]]] is the most popular programming language [today]';
@@ -45,6 +39,16 @@ describe('Array', function () {
             let substr = 'It was the BEST butter';
 
             let right = 'It was the BEST butter';
+            let guess = brackets.replace(str, substr);
+
+            assert.equal(guess, right);
+        });
+
+        it('a tricky one', function () {
+            let str = 'First ]it] [] out][] a [race]-]]]co][][][urse, in a sort of circle';
+            let substr = 'marked';
+
+            let right = 'First ]it] marked out][] a [race]-]]]co][][][urse, in a sort of circle';
             let guess = brackets.replace(str, substr);
 
             assert.equal(guess, right);
